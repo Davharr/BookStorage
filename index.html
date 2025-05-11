@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpustakaan Ebook</title>
+  <!-- Tailwind CSS + Font Google (untuk anak SD) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Ikon (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive;
+      background-color: #f0f9ff; /* Warna biru muda */
+    }
+    .ebook-card {
+      transition: transform 0.2s;
+    }
+    .ebook-card:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="min-h-screen p-4">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-blue-600 mb-2">
+        <i class="fas fa-book-open mr-2"></i>Perpustakaan Ebook SD
+      </h1>
+      <p class="text-xl text-gray-600">Temukan buku favoritmu!</p>
+    </header>
+
+    <!-- Search & Filter -->
+    <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+      <div class="flex flex-col md:flex-row gap-4 mb-4">
+        <!-- Search Box -->
+        <div class="flex-1 relative">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Cari judul ebook..." 
+            class="w-full p-4 pl-12 border-2 border-blue-300 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+          <i class="fas fa-search absolute left-4 top-5 text-blue-400 text-xl"></i>
+          <button id="searchButton" class="absolute right-2 top-2 bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Kategori & Tahun -->
+      <div class="flex flex-wrap gap-4">
+        <select id="filterCategory" class="p-3 border rounded-lg bg-yellow-100 text-lg">
+          <option value="">Semua Kategori</option>
+          <option value="Cerita">Cerita</option>
+          <option value="Pelajaran">Pelajaran</option>
+          <option value="Komik">Komik</option>
+          <option value="Puisi">Puisi</option>
+        </select>
+
+        <select id="filterYear" class="p-3 border rounded-lg bg-green-100 text-lg">
+          <option value="">Semua Tahun</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Daftar Ebook -->
+    <div id="ebookList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Ebook akan dimuat via JavaScript -->
+    </div>
+
+    <!-- Pesan jika tidak ada hasil -->
+    <div id="noResults" class="hidden text-center py-10">
+      <i class="fas fa-book-dead text-6xl text-gray-300 mb-4"></i>
+      <h3 class="text-2xl font-bold text-gray-500">Ebook tidak ditemukan!</h3>
+    </div>
+  </div>
+
+  <!-- Load JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
